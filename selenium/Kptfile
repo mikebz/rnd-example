@@ -1,0 +1,11 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: selenium
+upstream:
+  type: git
+  git:
+    commit: 75f116a8b55b6a31ab64544d60d1f6ce60053507
+    repo: https://github.com/kubernetes/examples
+    directory: staging/selenium
+    ref: master

@@ -1,0 +1,6 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: rnd-example
+packageMetadata:
+  shortDescription: sample selenium package with random function

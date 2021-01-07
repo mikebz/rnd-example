@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: selenium-node-chrome
+  name: selenium-node-chrome
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: selenium-node-chrome
+  template:
+    metadata:
+      labels:
+        app: selenium-node-chrome
+    spec:
+      containers:
+      - env:
+        - name: HUB_HOST
+          value: selenium-hub
+        - name: HUB_PORT
+          value: "4444"
+        image: selenium/node-chrome-debug:3.141
+        name: selenium-node-chrome
+        ports:
+        - containerPort: 5555
+        resources:
+          limits:
+            cpu: ".5"
+            memory: 1000Mi
+        volumeMounts:
+        - mountPath: /dev/shm
+          name: dshm
+      volumes:
+      - emptyDir:
+          medium: Memory
+        name: dshm
