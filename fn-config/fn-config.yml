@@ -1,12 +1,12 @@
 apiVersion: v1
-data:
-  fieldSpecs:
-  - path: metadata/name
-  fieldprefix: selenium-hub
 kind: ConfigMap
 metadata:
   annotations:
     config.kubernetes.io/function: |
       exec:
         path: rnd-fn
-  name: selenium-hub
+data:
+  fieldprefix: selenium-hub
+  fieldSpecs:
+  - path: metadata/name
+  - path: metadata/labels/app
