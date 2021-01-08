@@ -10,3 +10,5 @@ data:
   fieldSpecs:
   - path: metadata/name
   - path: metadata/labels/app
+  - path: spec/selector/app
+    kind: Service
